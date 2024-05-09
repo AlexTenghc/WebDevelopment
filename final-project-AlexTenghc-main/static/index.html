@@ -1,0 +1,177 @@
+<html>
+<head>
+  <title>Belay</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <link rel="stylesheet" type="text/css" href="/static/style.css"></link>
+</head>
+
+<body>
+    <div class="profile"> <!-- TODO: Show me only on "/profile" -->
+        <div class="header">
+          <h2><a>Belay</a></h2>
+          <div class="loginHeader">
+            <div class="loggedIn">
+              <a class="welcomeBack">
+                <span class="username">{{ Username }}</span>
+                <span class="material-symbols-outlined md-18">person</span></a>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="clip">
+          <div class="auth container">
+            <h2>Welcome to Belay!</h2>
+            <div class="alignedForm">
+              <label for="username">Username: </label>
+              <input name="username" value="{{ username }}">
+              <button class="updateUsername">update</button>
+              <label for="password">Password: </label>
+              <input type="password" name="password" value="{{ password }}">
+              <button class="updatePassword">update</button>
+              <label for="repeatPassword">Repeat: </label>
+              <input type="password" name="repeatPassword" value="{{ password }}">
+              <error>Passwords don't match</error>
+              <button class="exit goToSplash">Cool, let's go!</button>
+              <button class="exit logout">Log out</button>
+            </div>
+          </div>
+        </div> 
+    </div>
+
+    <div class="login"> <!-- TODO: Show me only on "/login" -->
+        <div class="header">
+          <h2><a>Belay</a></h2>
+        </div>
+        <div class="clip">
+          <div class="auth container">
+            <h3>Enter your username and password to log in:</h3>
+            <div class="alignedForm login">
+              <label for="username">Username</label>
+              <input name="username"></input>
+              <button>Login</button>
+              <label for="password">Password</label>
+              <input type="password" name="password">
+            </div>
+            <div class="failed"> <!-- TODO: Hide me by default. Show only on failed login attempts -->
+              <div class="message">
+                Oops, that username and password don't match any of our users!
+              </div>
+              <button onclick="signup();">Create a new Account</button>
+            </div>
+          </div>
+        </div>
+    </div> <!-- end .login -->
+
+    <div class="room"> <!-- TODO: Show me only on "/room" (and its subroutes) -->
+        <div class="header">
+            <h2><a>Belay</a></h2>
+            <div class="loginHeader">
+                <div class="loggedIn">
+                <a class="welcomeBack">
+                <span class="username">{{ Username }}</span>
+                <span class="material-symbols-outlined md-18">person</span></a>
+                </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="clip">
+            <div class="container">
+                <div class="menu">
+                    <div class="tab" id="channels" onclick="show('channels');">
+                    <span>Channels</span>
+                    </div>
+                </div>
+                <div class="tab seletced" id="messages" onclick="show('messages');">
+                </div>
+                <div class="tab" id="thread" onclick="show('threads');">
+                </div>
+
+            <div class="chat">
+                <div class="channel_container">
+                    <h3>Channels</h3>
+                    
+                    <div class="channels">
+                        <channel>
+                          channel1
+                          <div class="round">
+                            <span class="unread-messages">5</span>
+                          </div>
+                        </channel>
+            
+                        <channel class="current">
+                          channel2
+                          <div class="round">
+                            <span class="unread-messages">5</span>
+                          </div>
+                        </channel>
+                      </div>
+
+                    <div class="new_channel">
+                        <button class="create" onclick="createChannel();">Create a new Channel</button>
+                    </div>
+                </div>
+
+                <div class="message_container">
+                    <div class="roomDetail">
+                        <div class="displayRoomName"> <!-- TODO: Show me by default. Hide when user clicks the edit icon below -->
+                          <h3>
+                            <strong>{{ room.name }}</strong>
+                            <a><span class="material-symbols-outlined md-18">edit</span></a>
+                          </h3>
+                        </div>
+                        <div class="editRoomName"> <!-- TODO: Hide me by default. Show when user clicks the edit icon above -->
+                          <h3>
+                            <input class="renameRoomInput">
+                            <button>Update</button>
+                          </h3>
+                        </div>
+                    </div>
+
+                    <div class="messages">
+
+                    </div>
+                    
+                    <div class="comment">
+                        <label for="comment">Comments:</label>
+                        <textarea name="comment"></textarea>
+                        <button type="submit" value="Post">Post</button>
+                    </div>
+
+                </div>
+
+                <div class="thread_container">
+                    <div class="tools">
+                        <h3>Threads</h3>
+                        <button class="close_button" onclick="closeReply();">X</button>
+                    </div>
+                   
+                    <message></message>
+                    <div class="replies">
+                        
+                    </div>
+
+                    <div class="comment">
+                        <label for="comment">Reply to current thread:</label>
+                        <textarea name="comment"></textarea>
+                        <button type="submit" value="Post">Post</button>
+                    </div>
+                </div>
+                
+                <div class="splash_container">
+                    <h1>
+                        Welcome to Belay!
+                    </h1>
+                </div>
+            </div>       
+        </div>
+    </div>
+</div>
+
+
+<script src="/static/script.js"></script>
+</body>
+</html>
