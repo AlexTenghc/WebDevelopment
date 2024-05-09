@@ -1,10 +1,5 @@
 # Final Project: Belay (a Slack clone)
 
-40 points
-
-**DUE: Friday, March 10 by 5:30pm**
-
-Create your own repo at: https://classroom.github.com/a/XbBPcBk8
 
 ## Introduction
 
